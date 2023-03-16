@@ -52,10 +52,10 @@ _______________________________________________________________________
 
 10 suma srazek v dane roce minus suma srazek v minimalnim roce = 
 -- suma srazek v danem roce
-SUM(data[srazky])
--
--- MÍNUS
--- suma srazek v minimalnim roce
-SUMX(FILTER(ALL(data),data[rok] = 
--- ROK SE ROVNÁ MINIMÁLNÍMU ROKU ZE VŠECH
-MINX(ALL(data),data[rok])),data[srazky])
+VAR suma_srazek_rok = SUM(data[srazky])
+VAR minimalni_rok =  MINX(ALL(data),data[rok])
+var suma_srazek_minimalni_rok = 
+SUMX(FILTER(ALL(data),data[rok] = minimalni_rok),data[srazky])
+RETURN 
+--suma_srazek_rok - suma_srazek_minimalni_rok
+suma_srazek_rok - suma_srazek_minimalni_rok
