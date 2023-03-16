@@ -34,6 +34,14 @@ SUMX(
 data[srazky])
 _____________________________________________________________________________
 
+20 byl rok nejteplejsiho cervence = 
+
+VAR dany_rok_cervenec = MAXX(FILTER(data,data[mesic] = 7),data[maximalni_teplota])
+VAR vsechny_roky_cervenec = 
+MAXX(FILTER(ALL(data),
+data[mesic] = 7),data[maximalni_teplota])
+
+RETURN IF(dany_rok_cervenec = vsechny_roky_cervenec,"ANO","NE")
 04 suma srazek rok 2000 = 
 
 -- scenar4: Rusim filtry vizualu a nastavuji si vlastni, pouziji kombinaci funkci
