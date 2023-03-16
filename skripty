@@ -75,3 +75,9 @@ VAR maximalni_teplota_rok = MAX(data[maximalni_teplota])
 RETURN
 MINX(FILTER(data,data[maximalni_teplota] = maximalni_teplota_rok),
 data[datum])
+
+____________________________________________
+
+13 suma srazek kumulativne = 
+-- suma srazek za dany a predchozi roky
+SUMX(FILTER(ALL(data),data[rok] <= MAX(data[rok])),data[srazky])
