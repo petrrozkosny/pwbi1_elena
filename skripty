@@ -48,3 +48,14 @@ SUMX(
     data[rok] = 2000),
 --krok4: Funkce SUMX() agreguje sloupec srazky tabulky vracene funkci FILTER()
 data[srazky])
+_______________________________________________________________________
+
+10 suma srazek v dane roce minus suma srazek v minimalnim roce = 
+-- suma srazek v danem roce
+SUM(data[srazky])
+-
+-- MÍNUS
+-- suma srazek v minimalnim roce
+SUMX(FILTER(ALL(data),data[rok] = 
+-- ROK SE ROVNÁ MINIMÁLNÍMU ROKU ZE VŠECH
+MINX(ALL(data),data[rok])),data[srazky])
