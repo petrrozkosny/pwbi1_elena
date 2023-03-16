@@ -94,3 +94,11 @@ ______________________
 18 maximalni datum mesicu 1 2 3 = 
 
 MAXX(FILTER(data,data[mesic] < 4),data[datum])
+______________________________________________
+
+19 kontrola ruzyne = 
+-- dany rok, vsechny lokality
+VAR max_teplota = MAX(data[maximalni_teplota])
+VAR max_teplota_ruzyne = 
+MAXX(FILTER(data,data[lokalita] = "RUZYNE"),data[maximalni_teplota])
+RETURN IF(max_teplota = max_teplota_ruzyne,"ANO","NE")
