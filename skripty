@@ -110,3 +110,13 @@ VAR max_teplota = MAX(data[maximalni_teplota])
 VAR max_teplota_ruzyne = 
 MAXX(FILTER(data,data[lokalita] = "RUZYNE"),data[maximalni_teplota])
 RETURN IF(max_teplota = max_teplota_ruzyne,"ANO","NE")
+________________________________________________________
+
+20 byl rok nejteplejsiho cervence = 
+
+VAR dany_rok_cervenec = MAXX(FILTER(data,data[mesic] = 7),data[maximalni_teplota])
+VAR vsechny_roky_cervenec = 
+MAXX(FILTER(ALL(data),
+data[mesic] = 7),data[maximalni_teplota])
+
+RETURN IF(dany_rok_cervenec = vsechny_roky_cervenec,"ANO","NE")
