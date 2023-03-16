@@ -89,3 +89,8 @@ __________________________________________________
 VAR _1 = MINX(FILTER(ALL(data),data[rok] = MINX(ALL(data),data[rok])),data[datum])
 VAR _2 = MINX(ALL(data),data[datum])
 RETURN _2
+______________________
+
+18 maximalni datum mesicu 1 2 3 = 
+
+MAXX(FILTER(data,data[mesic] < 4),data[datum])
