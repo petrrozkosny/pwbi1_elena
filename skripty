@@ -81,3 +81,11 @@ ____________________________________________
 13 suma srazek kumulativne = 
 -- suma srazek za dany a predchozi roky
 SUMX(FILTER(ALL(data),data[rok] <= MAX(data[rok])),data[srazky])
+
+__________________________________________________
+
+17 minimalni datum minimalni rok = 
+
+VAR _1 = MINX(FILTER(ALL(data),data[rok] = MINX(ALL(data),data[rok])),data[datum])
+VAR _2 = MINX(ALL(data),data[datum])
+RETURN _2
