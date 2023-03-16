@@ -49,7 +49,15 @@ SUMX(
 --krok4: Funkce SUMX() agreguje sloupec srazky tabulky vracene funkci FILTER()
 data[srazky])
 _______________________________________________________________________
+09 suma srazek mezirocne = 
 
+-- suma srazek v danem roce
+SUM(data[srazky])
+-- MÍNUS
+-
+-- suma srazek v predchozim roce
+SUMX(FILTER(ALL(data), data[rok] = MAX(data[rok])-1),data[srazky])
+_________________________________________________________________________
 10 suma srazek v dane roce minus suma srazek v minimalnim roce = 
 -- suma srazek v danem roce
 VAR suma_srazek_rok = SUM(data[srazky])
