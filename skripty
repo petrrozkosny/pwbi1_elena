@@ -67,3 +67,11 @@ SUMX(FILTER(ALL(data),data[rok] = minimalni_rok),data[srazky])
 RETURN 
 --suma_srazek_rok - suma_srazek_minimalni_rok
 suma_srazek_rok - suma_srazek_minimalni_rok
+__________________________________________
+
+11 minimalni datum maximalni teploty v danem roce = 
+
+VAR maximalni_teplota_rok = MAX(data[maximalni_teplota])
+RETURN
+MINX(FILTER(data,data[maximalni_teplota] = maximalni_teplota_rok),
+data[datum])
