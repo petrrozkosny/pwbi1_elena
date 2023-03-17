@@ -120,3 +120,13 @@ MAXX(FILTER(ALL(data),
 data[mesic] = 7),data[maximalni_teplota])
 
 RETURN IF(dany_rok_cervenec = vsechny_roky_cervenec,"ANO","NE")
+__________________________________________________________________
+
+
+28 suma srazek predchozi rok = 
+
+-- v danem mesici, lokalite
+SUMX(FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok]) - 1
+&& data[mesic] = SELECTEDVALUE(data[mesic])
+&& data[lokalita] = SELECTEDVALUE(data[lokalita]))
+,data[srazky])
