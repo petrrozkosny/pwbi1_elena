@@ -130,3 +130,15 @@ SUMX(FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok]) - 1
 && data[mesic] = SELECTEDVALUE(data[mesic])
 && data[lokalita] = SELECTEDVALUE(data[lokalita]))
 ,data[srazky])
+__________________________________________________________________
+
+30 pf barva grafu = 
+
+VAR maximalni_teplota_mesic_rok_lokalita = MAX(data[maximalni_teplota])
+VAR max_teplota_rok_lokalita = 
+ MAXX(
+ FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok]) && data[lokalita]= 
+ SELECTEDVALUE(data[lokalita])),data[maximalni_teplota])
+
+RETURN
+IF(maximalni_teplota_mesic_rok_lokalita = max_teplota_rok_lokalita,"TOMATO","GOLD")
